@@ -35,8 +35,8 @@ def init_database():
         try:
             # Periksa apakah file CSV ada
             if os.path.exists(file_name):
-                # Baca file CSV penuh (tanpa nrows)
-                df = pd.read_csv(file_name)
+                # Baca file CSV 10 data pertama 
+                df = pd.read_csv(file_name, nrows=10)
                 
                 # Muat dataframe ke tabel SQLite
                 df.to_sql(table_name, conn, if_exists='replace', index=False)
