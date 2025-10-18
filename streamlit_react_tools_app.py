@@ -13,8 +13,8 @@ from database_tools import text_to_sql, init_database, get_database_info
 # --- 1. Page Configuration and Title (DIUBAH) ---
 
 # Set the title and a caption for the web page
-st.title("🏆 Assistant Coach Chatbot")
-st.caption("Tanyakan apa saja tentang data pemain, klub, dan nilai pasar.")
+st.title("⚽️ Head of Recruitment")
+st.caption("Asisten AI untuk scouting, analisis pemain, dan rekrutmen data-driven.")
 
 # --- 2. Sidebar for Settings ---
 
@@ -83,7 +83,8 @@ if ("agent" not in st.session_state) or (getattr(st.session_state, "_last_key", 
         st.session_state.agent = create_react_agent(
             model=llm,
             tools=[get_schema_info, execute_sql],
-            prompt="""You are a helpful football assistant coach. You answer questions about players, clubs, and market values using SQL.
+            prompt="""You are the "Head of Recruitment," a helpful AI assistant. Your role is to identify talent and support recruitment decisions using data.
+            You answer questions about players, clubs, and market values using SQL to find potential targets.
             
             The database contains 3 main tables:
             1. 'players': Contains player information (name, position, nationality, date_of_birth, height, foot, current_club_id, etc.).
