@@ -13,15 +13,12 @@ def init_database():
     Fungsi ini akan memuat file-file yang ditentukan dalam 'csv_files_to_load'.
     """
     
-    # --- PERUBAHAN UTAMA DI SINI ---
-    # Daftar file CSV yang akan dimuat.
-    # Hanya muat 3 file yang Anda tentukan.
+    # Load 3 file database csv.
     csv_files_to_load = {
         "players": "players.csv",
         "clubs": "clubs.csv",
         "player_valuations": "player_valuations.csv"
     }
-    # ---------------------------------
     
     conn = sqlite3.connect(DB_PATH)
     
@@ -34,8 +31,7 @@ def init_database():
     for table_name, file_name in csv_files_to_load.items():
         try:
             # Periksa apakah file CSV ada
-            if os.path.exists(file_name):
-                # Baca file CSV 10 data pertama 
+            if os.path.exists(file_name): 
                 df = pd.read_csv(file_name)
                 
                 # Muat dataframe ke tabel SQLite

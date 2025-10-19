@@ -10,7 +10,7 @@ from langchain_core.tools import tool  # For creating tools
 # Pastikan file database_tools.py ada di folder yang sama
 from database_tools import text_to_sql, init_database, get_database_info
 
-# --- 1. Page Configuration and Title (DIUBAH) ---
+# --- 1. Page Configuration and Title ---
 
 # Set the title and a caption for the web page
 st.title("⚽️ Head of Recruitment")
@@ -79,7 +79,7 @@ if ("agent" not in st.session_state) or (getattr(st.session_state, "_last_key", 
             temperature=0.1  # Lower temperature for more accurate SQL
         )
         
-        # --- PROMPT AGEN (SANGAT PENTING & DIUBAH) ---
+        # --- PROMPT AGEN ---
         st.session_state.agent = create_react_agent(
             model=llm,
             tools=[get_schema_info, execute_sql],
@@ -139,7 +139,7 @@ for msg in st.session_state.messages:
 
 # --- 6. Handle User Input and Agent Communication ---
 
-# (DIUBAH) Ubah placeholder teks input
+# Ubah placeholder teks input
 prompt = st.chat_input("Tanyakan soal data pemain, klub, atau nilai pasar...")
 
 if prompt:
@@ -161,7 +161,7 @@ if prompt:
             if "messages" in response and len(response["messages"]) > 0:
                 answer = response["messages"][-1].content
                 
-                # Coba ekstrak SQL query dari log (untuk ditampilkan)
+                # ekstrak SQL query dari log
                 sql_query = None
                 for msg in reversed(response["messages"]): # Cari dari belakang
                     if hasattr(msg, "tool_calls") and msg.tool_calls:
