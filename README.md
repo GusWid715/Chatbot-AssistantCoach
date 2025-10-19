@@ -2,7 +2,7 @@
 
 ### ⚽️ Head of Recruitment: Chatbot Analisis Data Sepak Bola
 
-Proyek ini bertujuan untuk membangun sebuah chatbot AI dengan nama "Head of Recruitment". Aplikasi ini berfungsi sebagai asisten perekrutan data-driven yang dirancang untuk membantu proses scouting dan analisis pemain sepak bola. Pengguna dapat mengajukan pertanyaan dalam bahasa alami (contoh: "Tampilkan 5 bek tengah di bawah 25 tahun dengan nilai pasar di bawah 10 juta"), dan chatbot akan memproses permintaan tersebut untuk memberikan jawaban faktual yang diekstrak langsung dari database.
+Proyek ini bertujuan untuk membangun sebuah chatbot AI dengan nama "Head of Recruitment". Aplikasi ini berfungsi sebagai asisten perekrutan yang dirancang untuk membantu proses scouting dan analisis pemain sepak bola. Pengguna dapat mengajukan pertanyaan dalam bahasa alami dan chatbot akan memproses permintaan tersebut untuk memberikan jawaban yang diekstrak langsung dari database.
 
 ## Komponen Teknis:
 
@@ -34,7 +34,7 @@ Proyek ini bertujuan untuk membangun sebuah chatbot AI dengan nama "Head of Recr
 4. Semua pesan yang ada di st.session_state.messages ditampilkan ke UI menggunakan st.chat_message.
 5. Aplikasi menunggu input pengguna melalui st.chat_input.
 6. Ketika pengguna mengirim prompt, prompt tersebut (bersama seluruh riwayat obrolan) dikirim ke st.session_state.agent.invoke().
-7. Agen AI kemudian memulai siklus ReAct: ia mungkin akan memanggil get_schema_info (jika perlu), lalu "berpikir" untuk membuat kueri SQL, lalu memanggil execute_sql untuk mendapatkan data, dan terakhir merumuskan jawaban dalam bahasa alami.
+7. Agen AI kemudian memulai siklus ReAct: ia mungkin akan memanggil get_schema_info, lalu "berpikir" untuk membuat kueri SQL, lalu memanggil execute_sql untuk mendapatkan data, dan terakhir merumuskan jawaban dalam bahasa alami.
 8. Jawaban akhir dari agen ditambahkan ke st.session_state.messages dan langsung ditampilkan di UI sebagai gelembung obrolan "assistant".
 
 ## Menjalankan Aplikasi
@@ -64,5 +64,5 @@ streamlit run streamlit_react_tools_app.py
 Saat aplikasi terbuka di browser:
 
 - Masukkan kunci API Google AI Anda di sidebar.
-- Klik tombol "Initialize Database" di sidebar. Ini hanya perlu dilakukan sekali. Proses ini akan membaca file CSV dan membuat file database `football_data.db`.
+- Klik tombol "Initialize Database" di sidebar. Proses ini akan membaca file CSV dan membuat file database `football_data.db`.
 - Mulai ajukan pertanyaan rekrutmen Anda.
